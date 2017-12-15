@@ -118,7 +118,7 @@ public class Sampler extends GUIApplication {
 					
 				}
 			}); 
-			viewObjects.add(new Bootycheek());
+			viewObjects.add(new Pizza());
 			
 		}
 		
