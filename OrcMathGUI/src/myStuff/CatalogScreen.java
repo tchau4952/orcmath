@@ -28,6 +28,7 @@ public class CatalogScreen extends FullFunctionScreen {
 		viewObjects.add(descriptionField);
 		viewObjects.add(aField);
 		viewObjects.add(bField);
+		viewObjects.add(add, element);
 		
 		add = new Button(20,20,20,20, "ADD", new Action() {
 			
