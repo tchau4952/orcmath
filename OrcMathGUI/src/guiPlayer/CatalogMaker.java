@@ -134,7 +134,7 @@ public class CatalogMaker {
 		return false;
 	}
 
-	private  void showCatalog() {
+	private void showCatalog() {
 		displayMessage("The catalog contains these Books:\n");
 		for(Book b: catalog){
 			displayMessage("   "+b.toString()+"\n");
