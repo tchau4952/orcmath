@@ -8,13 +8,13 @@ import guiTeacher.components.Component;
 
 public class Pizza extends AnimatedComponent {
 
-	private String orderNumber;
+	private int orderNumber;
 	private String type;
 	private String toppings;
 	private double price;
 	private int amount;
 	
-	public Pizza(String orderNumber, String type, String toppings, double price, int amount) {
+	public Pizza(int orderNumber, String type, String toppings, double price, int amount) {
 		super(40, 40, 100, 100);
 		//addSequence("resources/sheet.png", 150, 0, 0, 89, 175, 5);
 		//Thread animation = new Thread(this);
