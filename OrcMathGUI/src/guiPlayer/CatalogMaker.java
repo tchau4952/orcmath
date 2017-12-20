@@ -100,7 +100,7 @@ public class CatalogMaker {
 		catalog.add(b);
 	}
 
-	private void save() {
+	public void save() {
 		try{    
 			FileWriter fw=new FileWriter("BookCatalog.csv");
 			for(Book b: catalog){
