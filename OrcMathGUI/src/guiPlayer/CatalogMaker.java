@@ -102,7 +102,7 @@ public class CatalogMaker {
 
 	public void save() {
 		try{    
-			FileWriter fw=new FileWriter("BookCatalog.csv");
+			FileWriter fw = new FileWriter("BookCatalog.csv");
 			for(Book b: catalog){
 				fw.write(b+"\n");    	
 			}
