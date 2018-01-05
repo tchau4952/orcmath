@@ -108,6 +108,11 @@ public class SimonScreenKevin extends ClickableScreen implements Runnable {
 							}
 						});
 						blink.start();
+						if (b == sequence.get(sequenceIndex).getButton()){
+							sequenceIndex++;
+						} else {
+							progress.gameOver();
+						}
 					}
 				}
 			});
