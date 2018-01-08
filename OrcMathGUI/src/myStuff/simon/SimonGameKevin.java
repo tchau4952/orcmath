@@ -4,22 +4,26 @@ import guiTeacher.GUIApplication;
 
 public class SimonGameKevin extends GUIApplication {
 
+	public static SimonGameKevin game;
+	public static SimonScreenKevin screen;
+	
+	
 	public SimonGameKevin(int width, int height) {
 		super(width, height);
 		setVisible(true);
 	}
-
 	@Override
 	public void initScreen() {
-		SimonScreenKevin screen = new SimonScreenKevin(getWidth(), getHeight());
+		screen = new SimonScreenKevin(getWidth(), getHeight());
 		setScreen(screen);
 
 	}
-
-	public static void main(String[] args) {
-		SimonGameKevin s = new SimonGameKevin(800, 550);
-		Thread runner = new Thread(s);
+	public static void main(String[] args)
+	{
+		game = new SimonGameKevin(800,800);
+		Thread runner = new Thread(game);
 		runner.start();
 	}
+
 
 }
