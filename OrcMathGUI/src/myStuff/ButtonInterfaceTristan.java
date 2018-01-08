@@ -1,9 +1,23 @@
 package myStuff;
 
-public class ButtonInterfaceTristan {
 
-	public ButtonInterfaceTristan() {
-		// TODO Auto-generated constructor stub
-	}
+
+import guiTeacher.components.Action;
+
+import guiTeacher.interfaces.Clickable;
+
+
+
+public interface ButtonInterfaceTristan extends Clickable {
+
+	void setAction(Action action);
+
+
+
+	void highlight();
+
+
+
+	void dim();
 
 }
