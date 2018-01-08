@@ -51,40 +51,36 @@ public class SimonScreenKevin extends ClickableScreen implements Runnable {
 		sequenceIndex = 0;
 	}
 	private void playSequence() {
-		ButtonInterfaceKevin b = getAButton();
+		final ButtonInterfaceKevin b = getAButton();
 		for(int i = 0; i<sequence.size(); i++)
 		{
 			if(b != null)
 			{
 				b.dim();
 			}
-			else
-			{
-				b = MoveInterfaceKevin.getButton();
 				
-				int sleepTime = roundNumber*3;
-				Thread sleepT = new Thread(new Runnable(){
+			int sleepTime = roundNumber*3;
+			Thread sleepT = new Thread(new Runnable(){
 
-					public void run()
+				public void run()
+				{
+					b.highlight();
+					try 
 					{
-						b.highlight();
-						try 
-						{
-							Thread.sleep(sleepTime);
-						} 
-						catch (InterruptedException e) 
-						{
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						b.dim();
+						Thread.sleep(sleepTime);
+					} 
+					catch (InterruptedException e) 
+					{
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
+					b.dim();
+				}
 						
-					});
-				sleepT.start();
-			}
-			
+				});
+			sleepT.start();
 		}
+			
 	}
 
 	private void changeText(String x)
@@ -156,17 +152,17 @@ public class SimonScreenKevin extends ClickableScreen implements Runnable {
 		ButtonInterfaceKevin[] buttonInt = new ButtonInterfaceKevin[6];
 		numButton = 6;
 		Color[] colorArr = new Color[6];
-		colorArr[1] = Color.blue
-		colorArr[2] = Color.magenta
-		colorArr[3] = Color.pink
-		colorArr[4] = Color.red
-		colorArr[5] = Color.orange
-		colorArr[6] = Color.yellow
+		colorArr[1] = Color.blue;
+		colorArr[2] = Color.magenta;
+		colorArr[3] = Color.pink;
+		colorArr[4] = Color.red;
+		colorArr[5] = Color.orange;
+		colorArr[6] = Color.yellow;
 		for(int i =0; i<buttonInt.length; i--)
 		{
 			final ButtonInterfaceKevin b = getAButton();
 			buttonInt[i] = b;
-			b.setColor(collorArr[i]);
+			b.setColor(colorArr[i]);
 			b.setX(i*30);
 			b.setY(i*25);
 			
