@@ -12,4 +12,4 @@ public interface ProgressInterfaceTristan extends Visible {
 
 	void setSequenceSize(int x);
 
-}
+}//

@@ -20,4 +20,4 @@ public interface ButtonInterfaceTristan extends Clickable {
 
 	void dim();
 
-}
+}//ss

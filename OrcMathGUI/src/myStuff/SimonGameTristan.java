@@ -37,7 +37,7 @@ public class SimonGameTristan extends GUIApplication {
 		go.start();
 
 	}
-
+//
 
 
 	@Override

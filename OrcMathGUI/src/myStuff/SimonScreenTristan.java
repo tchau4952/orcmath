@@ -333,7 +333,7 @@ public class SimonScreenTristan extends ClickableScreen implements Runnable{
 	}
 
 	
-
+//uj
 	public void playSequence() {
 
 		ButtonInterfaceTristan b = null;
