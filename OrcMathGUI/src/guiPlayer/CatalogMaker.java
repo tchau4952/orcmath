@@ -1,8 +1,5 @@
 package guiPlayer;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,35 +7,31 @@ import java.util.Scanner;
 
 public class CatalogMaker {
 
-	public static Scanner in;
-
-	private ArrayList<Book> catalog;
-
+	private ArrayList<Pizza> catalog;
+	
 	public CatalogMaker() {
-		//instantiate the catalog
-		catalog = new ArrayList<Book>();
+		catalog = new ArrayList<Pizza>();
+		catalog.add(new Pizza(1, "Regular", "Pepperoni", 3.50, 1));
+		catalog.add(new Pizza(2, "Sicilian", "Pepperoni", 3.50, 1));
+		catalog.add(new Pizza(3, "Regular", "Pepperoni", 3.50, 1));
+		catalog.add(new Pizza(4, "Sicilian", "Pepperoni", 3.50, 1));
 	}
 
-	public static void main(String[] args){
-		CatalogMaker maker = new CatalogMaker();
-		in = new Scanner(System.in);
-		maker.menu();
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		CatalogMaker c = new CatalogMaker();
+		System.out.println(c.getCSVContent());
+		c.saveContent("yay.csv");
 	}
 
-	private static void displayMessage(String message){
-		System.out.println(message);
-	}
-
-	private void menu() {
-		displayMessage("Would you like to \"load\" a save file or \"create\" a new list? ");
-		String[] allowedEntry = {"load","create"};
-		String input = getEntry(allowedEntry);
-		if(input.equals("load")){
-			load();
-		}else{
-			create();
+	public String getCSVContent() {
+		String data = "orderNumber, type, toppings, price, amount\n";
+		for(Pizza p: catalog) {
+			data += p + "\n";
 		}
+		return data;
 	}
+<<<<<<< HEAD
 
 	public ArrayList<Book> getBooks(){
 		return catalog;
@@ -64,7 +57,14 @@ public class CatalogMaker {
 				running = false;
 			}
 		}
+=======
+	
+	public void addNewItem(int orderNumber, String type, String toppings, double price, int amount) {
+		catalog.add(new Pizza(orderNumber, type, toppings, price, amount));
+		System.out.println("Item added successfully!");
+>>>>>>> refs/remotes/origin/master
 	}
+<<<<<<< HEAD
 
 	private void add() {
 		String title = null;
@@ -110,18 +110,22 @@ public class CatalogMaker {
 	}
 
 	public void save() {
+=======
+	
+	private void saveContent(String fileName) {
+>>>>>>> refs/remotes/origin/master
 		try{    
 			FileWriter fw=new FileWriter("BookCatalog.csv");
-			for(Book b: catalog){
+			for(Pizza b: catalog){
 				fw.write(b+"\n");    	
 			}
-
 			fw.close();    
 			System.out.println("Success! File \"BookCatalog.csv\" saved!");
 		}catch(IOException e){
 			System.out.println("An IOException was thrown. \nCheck to see that the directory where you tried to save the file actually exists.");
 		}
 	}
+<<<<<<< HEAD
 
 	private static String getEntry(String[] allowedEntry) {
 		String input = in.nextLine();
@@ -194,4 +198,6 @@ public class CatalogMaker {
 	public void removeBook(Book b) {
 		catalog.remove(b);
 	}
+=======
+>>>>>>> refs/remotes/origin/master
 }

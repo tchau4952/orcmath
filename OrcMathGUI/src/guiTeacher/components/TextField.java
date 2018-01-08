@@ -436,7 +436,11 @@ public class TextField extends StyledComponent implements KeyedComponent,Clickab
 			if(inputType == INPUT_TYPE_PLAIN && c >=32 && c <127){
 				insert(""+c);
 
+<<<<<<< HEAD
 			}else if(inputType == INPUT_TYPE_NUMERIC && (c== 46 || c >=48 && c <=57)){
+=======
+			}else if(inputType == INPUT_TYPE_NUMERIC && (c== 46 || c >= 48 && c <= 57)){
+>>>>>>> refs/remotes/origin/master
 
 				insert(""+c);
 
