@@ -34,7 +34,7 @@ public class SimonScreenTristan extends ClickableScreen implements Runnable{
 		    viewObjects.add(b);
 		}
 		progress = getProgress();
-		label = new TextLabel(130,230,300,40,"Let's play Simon!");
+		label = new TextLabel(400,100,300,40,"Let's play Simon!");
 		sequence = new ArrayList<MoveInterfaceTristan>();
 		//add 2 moves to start
 		lastSelectedButton = -1;
@@ -74,8 +74,8 @@ public class SimonScreenTristan extends ClickableScreen implements Runnable{
 		for(int i = 0; i < numberOfButtons; i++) {
 			final ButtonInterfaceTristan b = getAButton();
 		    b.setColor(colors[i]);
-		    b.setX(400 + (int)(150 * Math.cos(Math.PI * i / 3)));
-		    b.setY(200 + (int)(150 * Math.sin(Math.PI * i / 3)));
+		    b.setX(200*i + 200);
+		    b.setY(5*i + 200);
 		    b.setAction(new Action() {
 		    	public void act() {
 		    		if(acceptingInput) {
