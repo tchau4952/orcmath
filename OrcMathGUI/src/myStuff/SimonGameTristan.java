@@ -13,7 +13,7 @@ public class SimonGameTristan extends GUIApplication{
 	}
 
 	public static void main(String[] args){
-		game = new SimonGameTristan(850, 550);
+		game = new SimonGameTristan(800, 500);
 		Thread runner = new Thread(game);
 		runner.start();
 	}
