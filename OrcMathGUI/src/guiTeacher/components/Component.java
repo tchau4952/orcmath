@@ -208,5 +208,11 @@ public abstract class Component implements Visible {
 		clear();
 		update();
 	}
+
+
+	public void gameOver() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

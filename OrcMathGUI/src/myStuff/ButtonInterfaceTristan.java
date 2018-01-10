@@ -9,6 +9,8 @@ public interface ButtonInterfaceTristan extends Clickable {
 	void setColor(Color color);
 	
 	void setAction(Action action);
+	
 	void highlight();
+	
 	void dim();
 }

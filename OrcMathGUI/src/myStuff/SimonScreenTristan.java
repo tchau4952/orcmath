@@ -119,11 +119,6 @@ public class SimonScreenTristan extends ClickableScreen implements Runnable{
 		}
 	}
 
-	protected void gameOver() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	private ButtonInterfaceTristan getButton() {
 		// TODO Auto-generated method stub
 		return new ButtonKevin(0, 0, 100, 50, "", null);
