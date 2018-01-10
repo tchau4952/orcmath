@@ -10,6 +10,8 @@ import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
 
 public class SimonScreenTristan extends ClickableScreen implements Runnable{
+
+	private static final long serialVersionUID = 3565322860517751569L;
 	private static ProgressInterfaceTristan progress;
 	private ArrayList<MoveInterfaceTristan> sequence;
 	private TextLabel label;
@@ -19,19 +21,17 @@ public class SimonScreenTristan extends ClickableScreen implements Runnable{
 	private int sequenceIndex;
 	private static int lastSelectedButton;
 	
+	
 	public SimonScreenTristan(int width, int height) {
 		super(width, height);
-		Thread app = new Thread(this);
-		app.start();
 	}
-	
+
 	@Override
 	public void initAllObjects(List<Visible> viewObjects) {
 		addButtons();
 		for(ButtonInterfaceTristan b: buttons){ 
 		    viewObjects.add(b); 
 		}
-
 		progress = getProgress();
 		label = new TextLabel(130,230,300,40,"Let's play Simon!");
 		sequence = new ArrayList<MoveInterfaceTristan>();
@@ -44,8 +44,6 @@ public class SimonScreenTristan extends ClickableScreen implements Runnable{
 		viewObjects.add(label);
 	}
 
-
-
 	public MoveInterfaceTristan randomMove() {
 		int selectedButton = (int)(Math.random()*buttons.length);
 		while(selectedButton == lastSelectedButton) {
@@ -54,7 +52,7 @@ public class SimonScreenTristan extends ClickableScreen implements Runnable{
 		lastSelectedButton = selectedButton;
 		return getMove(selectedButton);
 	}
-
+	
 	private MoveInterfaceTristan getMove(int selectedButton) {
 		// TODO Auto-generated method stub
 		return null;
@@ -63,7 +61,6 @@ public class SimonScreenTristan extends ClickableScreen implements Runnable{
 	/**
 	Placeholder until partner finishes implementation of ProgressInterface
 	*/
-
 	private ProgressInterfaceTristan getProgress() { 
 	    // TODO Auto-generated method stub 
 	    return null; 
@@ -73,18 +70,21 @@ public class SimonScreenTristan extends ClickableScreen implements Runnable{
 		int numberOfButtons = 6;
 		buttons = new ButtonInterfaceTristan[numberOfButtons];
 		Color[] colors = new Color[numberOfButtons];
-		int x = 200;
+		colors[0] = Color.blue;
+		colors[1] = Color.red;
+		colors[2] = Color.green;
+		colors[3] = Color.yellow;
+		colors[4] = Color.orange;
+		colors[5] = Color.pink;
+		int x = 100;
 		int y = 200;
-		for(int i = 0; i < colors.length; i++) {
-			colors[i] = new Color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
-		}
-
 		for(int j = 0; j < buttons.length; j++) {
-			final ButtonInterfaceTristan b = getAButton();
+			final ButtonInterfaceTristan b = getButton();
 			b.setColor(colors[j]);
-		    b.setX(x);
-		    b.setY(y);
+			b.setX(x);
+			b.setY(y);
 			b.setAction(new Action(){
+				
 				public void act(){
 					if(acceptingInput) {
 						Thread blink = new Thread(new Runnable(){
@@ -112,21 +112,21 @@ public class SimonScreenTristan extends ClickableScreen implements Runnable{
 						}
 					}
 				}
+				
 			});
 			buttons[j] = b;
-			x += 50;
-			if(j == 4) {
-				y += 100;
-			}
+			y += 100;
 		}
 	}
 
 	protected void gameOver() {
-		// TODO Auto-generated method stub	}
-
-	private ButtonInterfaceTristan getAButton() {
 		// TODO Auto-generated method stub
-		return null;
+		
+	}
+
+	private ButtonInterfaceTristan getButton() {
+		// TODO Auto-generated method stub
+		return new ButtonKevin(0, 0, 100, 50, "", null);
 	}
 
 	@Override
@@ -147,6 +147,7 @@ public class SimonScreenTristan extends ClickableScreen implements Runnable{
 		acceptingInput = true;
 		sequenceIndex = 0;
 	}
+	
 	public void changeText(String text) {
 		Thread changer = new Thread(new Runnable() {
 			
@@ -162,8 +163,9 @@ public class SimonScreenTristan extends ClickableScreen implements Runnable{
 				label.setText("");
 			}
 		});
+		changer.start();
 	}
-
+	
 	public void playSequence() {
 		ButtonInterfaceTristan b = null;
 		for(int i = 0; i < sequence.size(); i++) {
@@ -181,6 +183,6 @@ public class SimonScreenTristan extends ClickableScreen implements Runnable{
 			}
 		}
 		b.dim();
-	}
+	}  
 
 }

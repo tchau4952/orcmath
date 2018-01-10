@@ -1,4 +1,4 @@
-package myStuff;
+package someStuff;
 
 import java.util.List;
 

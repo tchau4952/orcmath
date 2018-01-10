@@ -1,4 +1,4 @@
-package myStuff;
+package someStuff;
 
 import java.awt.Graphics2D;
 

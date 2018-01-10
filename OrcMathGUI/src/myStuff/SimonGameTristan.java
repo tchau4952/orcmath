@@ -2,32 +2,26 @@ package myStuff;
 
 import guiTeacher.GUIApplication;
 
-public class SimonGameTristan extends GUIApplication {
-
-	public static CatalogMakerGUI catalog;
-	public static OpeningScreen opener;
-	public static NextScreen transition;
-
+public class SimonGameTristan extends GUIApplication{
+	
+	public static SimonGameTristan game;
+	public static SimonScreenTristan screen;
+	
 	public SimonGameTristan(int width, int height) {
 		super(width, height);
 		setVisible(true);
 	}
 
-	public static void main(String[] args) {
-		catalog = new CatalogMakerGUI(500, 500);
-		Thread go = new Thread(catalog);
-		go.start();
+	public static void main(String[] args){
+		game = new SimonGameTristan(850, 550);
+		Thread runner = new Thread(game);
+		runner.start();
 	}
-//
-
 
 	@Override
-
 	public void initScreen() {
-		opener = new OpeningScreen(getWidth(), getHeight());
-		transition = new NextScreen(getWidth(), getHeight());
-		setScreen(opener);
-		//setScreen(transition);
-
+		screen = new SimonScreenTristan(getWidth(), getHeight());
+		setScreen(screen);
 	}
+
 }
