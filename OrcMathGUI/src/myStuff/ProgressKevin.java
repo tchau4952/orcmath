@@ -41,13 +41,13 @@ public class ProgressKevin extends Component implements ProgressInterfaceTristan
 		clear();
 		if(progressState) {
 			g.setColor(Color.black);
-			g.drawString("This is Round: " + this.roundNumber, 400, 40);
-			g.drawString("The Sequence Size is: " + this.sequenceSize, 400, 80);
+			g.drawString("This is Round: " + this.roundNumber, 300, 40);
+			g.drawString("The Sequence Size is: " + this.sequenceSize, 300, 80);
 		}else {
 			g.setColor(Color.black);
-			g.drawString("Game Over", 400, 40);
-			g.drawString("This is Round: " + this.roundNumber, 400, 80);
-			g.drawString("The Sequence Size is: " + this.sequenceSize, 400, 120);
+			g.drawString("Game Over", 300, 40);
+			g.drawString("This is Round: " + this.roundNumber, 300, 80);
+			g.drawString("The Sequence Size is: " + this.sequenceSize, 300, 120);
 		}
 	}
 
